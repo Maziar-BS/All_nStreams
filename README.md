@@ -3,4 +3,6 @@ _Project Definition_: CUDA-based project developed in order to invoke benchmarks
 
 _Considerations_: Originally Developed in IDE : Microsoft Visual Studio 2017 -- NVIDIA CUDA Toolkit v.10.0
 
-_Tutorial_: Creating a visual studio project by having *.sln file in the main repository and putting the other branch files in All_nStream Folder.
+_Tutorial_: Creating a visual studio project by having *.sln file in the main repository and putting the other branch files in All_nStream Folder. Visual Studio based project forms as : 
+1) https://drive.google.com/file/d/1MQmqIfKydqF--ohDagYnSzhUKpr4MlqS/view?usp=sharing
+2) https://drive.google.com/file/d/1rCiSdLzaN-uZbIM-tWs4RuzZB2aePaYt/view?usp=sharing
