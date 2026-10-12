@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SchedulerDataBase" Class="LinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SchedulerDataBase.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="MSc_Final_Project.Properties.Settings" SettingsPropertyName="SchedulerDataBaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.IIIStreamSetTable" Member="IIIStreamSetTables">
+    <Type Name="IIIStreamSetTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MemcpyH2D" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Kernel" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MemcpyD2H" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PID2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PSTable_IIIStreamSetTable" Member="PSTable" ThisKey="PID2" OtherKey="ID" Type="PSTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IIStreamSetTable" Member="IIStreamSetTables">
+    <Type Name="IIStreamSetTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MemcpyH2D" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Kernel" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MemcpyD2H" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PID2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PSTable_IIStreamSetTable" Member="PSTable" ThisKey="PID1" OtherKey="ID" Type="PSTable" IsForeignKey="true" />
+      <Association Name="PSTable_IIStreamSetTable1" Member="PSTable1" ThisKey="PID2" OtherKey="ID" Type="PSTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PSTable" Member="PSTables">
+    <Type Name="PSTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MemcpyH2D" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Kernel" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MemcpyD2H" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="PSTable_IIIStreamSetTable" Member="IIIStreamSetTables" ThisKey="ID" OtherKey="PID2" Type="IIIStreamSetTable" />
+      <Association Name="PSTable_IIStreamSetTable" Member="IIStreamSetTables" ThisKey="ID" OtherKey="PID1" Type="IIStreamSetTable" />
+      <Association Name="PSTable_IIStreamSetTable1" Member="IIStreamSetTables1" ThisKey="ID" OtherKey="PID2" Type="IIStreamSetTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PredictedExeSetTable" Member="PredictedExeSetTables">
+    <Type Name="PredictedExeSetTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StreamSet1_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet1_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet1_3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet2_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet2_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet2_3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet3_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet3_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet3_3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet4_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet4_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet4_3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet5_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StreamSet5_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActualIIIStreamSetTable" Member="ActualIIIStreamSetTables">
+    <Type Name="ActualIIIStreamSetTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PID2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PID3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nonStreamTable" Member="nonStreamTables">
+    <Type Name="nonStreamTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PipelineDuration" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CombinationsTable" Member="CombinationsTables">
+    <Type Name="CombinationsTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="C1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="C2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="C3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="C4" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DeleteIIIStreamTable" Method="DeleteIIIStreamTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteIIStreamTable" Method="DeleteIIStreamTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletePSTable" Method="DeletePSTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SaveIIIStreamSetTable" Method="SaveIIIStreamSetTable">
+    <Parameter Name="MemcpyH2D" Parameter="memcpyH2D" Type="System.Double" DbType="Float" />
+    <Parameter Name="Kernel" Parameter="kernel" Type="System.Double" DbType="Float" />
+    <Parameter Name="MemcpyD2H" Parameter="memcpyD2H" Type="System.Double" DbType="Float" />
+    <Parameter Name="PID1" Parameter="pID1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PID2" Parameter="pID2" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SaveIIStreamSetTable" Method="SaveIIStreamSetTable">
+    <Parameter Name="MemcpyH2D" Parameter="memcpyH2D" Type="System.Double" DbType="Float" />
+    <Parameter Name="Kernel" Parameter="kernel" Type="System.Double" DbType="Float" />
+    <Parameter Name="MemcpyD2H" Parameter="memcpyD2H" Type="System.Double" DbType="Float" />
+    <Parameter Name="PID1" Parameter="pID1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PID2" Parameter="pID2" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SavePSTable" Method="SavePSTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MemcpyH2D" Parameter="memcpyH2D" Type="System.Double" DbType="Float" />
+    <Parameter Name="Kernel" Parameter="kernel" Type="System.Double" DbType="Float" />
+    <Parameter Name="MemcpyD2H" Parameter="memcpyD2H" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SavePredictedExeSetTable" Method="SavePredictedExeSetTable">
+    <Parameter Name="StreamSet1_1" Parameter="streamSet1_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet1_2" Parameter="streamSet1_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet1_3" Parameter="streamSet1_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet2_1" Parameter="streamSet2_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet2_2" Parameter="streamSet2_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet2_3" Parameter="streamSet2_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet3_1" Parameter="streamSet3_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet3_2" Parameter="streamSet3_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet3_3" Parameter="streamSet3_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet4_1" Parameter="streamSet4_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet4_2" Parameter="streamSet4_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet4_3" Parameter="streamSet4_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet5_1" Parameter="streamSet5_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StreamSet5_2" Parameter="streamSet5_2" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SaveActualIIIStreamSetTable" Method="SaveActualIIIStreamSetTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Duration" Parameter="duration" Type="System.Double" DbType="Float" />
+    <Parameter Name="PID1" Parameter="pID1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PID2" Parameter="pID2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PID3" Parameter="pID3" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletenonStreamTable" Method="DeletenonStreamTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SavenonStreamTable" Method="SavenonStreamTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PipelineDuration" Parameter="pipelineDuration" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteCombinationsTable" Method="DeleteCombinationsTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SaveCombinationTable" Method="SaveCombinationTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="C1" Parameter="c1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="C2" Parameter="c2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="C3" Parameter="c3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="C4" Parameter="c4" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
