@@ -1,0 +1,9 @@
+# Visual Studio build output, caches and per-user files
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# NuGet packages (restored automatically from packages.config)
+packages/
